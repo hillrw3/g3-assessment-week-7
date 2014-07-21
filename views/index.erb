@@ -2,6 +2,7 @@
 
 <p>We show totally accurate lists of continents and countries!!</p>
 
+<h3>Leave us a message!</h3>
 <form method="post" action="/">
   <label for="name">Name:</label><br>
   <input name="name" id="name"><br>
@@ -11,11 +12,9 @@
   <button type="submit">Add Message</button>
 </form>
 
-
-<% if @messages != nil %>
+  <h4>Messages:</h4>
   <ul>
-  <% @messages.each do |message| %>
+  <% @all_comments.each do |message| %>
       <li><%= "#{message["name"]} said: '#{message["message"]}'." %></li>
   <% end %>
   </ul>
-<% end %>

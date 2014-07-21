@@ -8,6 +8,8 @@ feature 'Countries and Continents' do
     click_on 'Africa'
     expect(page).to have_content("Kenya")
     expect(page).to have_content("South Africa")
+    expect(page).to have_no_content("Venezuela")
+
   end
 
 end

@@ -1,6 +1,6 @@
 require 'sinatra/base'
 require 'gschool_database_connection'
-require_relative 'lib/visitor_comments'
+require_relative 'lib/comments_table'
 require './lib/country_list'
 
 class Application < Sinatra::Application
@@ -14,23 +14,15 @@ class Application < Sinatra::Application
   end
 
   get '/' do
+    @all_comments = @comments.select_all
     erb :index
   end
 
   post '/' do
     name = params[:name]
     message = params[:message]
-    @messages = []
-    # user_message = "#{name} said: '#{message}'."
-    # @messages << user_message
-    # @messages
     @comments.create(name, message)
-    if @comments != nil
-      all_comments = @comments.select_all
-      @messages << all_comments.pop
-    end
-    p @messages
-    redirect back
+    redirect '/'
   end
 
   get '/continents' do
