@@ -2,3 +2,20 @@
 
 <p>We show totally accurate lists of continents and countries!!</p>
 
+<form method="post" action="/">
+  <label for="name">Name:</label><br>
+  <input name="name" id="name"><br>
+  <label for="message">Message:</label><br>
+  <input name="message" id="message"><br>
+  <br>
+  <button type="submit">Add Message</button>
+</form>
+
+
+<% if @messages != nil %>
+  <ul>
+  <% @messages.each do |message| %>
+      <li><%= "#{message["name"]} said: '#{message["message"]}'." %></li>
+  <% end %>
+  </ul>
+<% end %>

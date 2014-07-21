@@ -2,8 +2,10 @@
 
 <ul>
   <% countries.each do |country| %>
+    <% if country[:continent] == continent %>
     <li>
-      <%= country[:name] %>
+      <%= country[:name]%>
     </li>
+      <% end %>
   <% end %>
 </ul>
